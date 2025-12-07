@@ -1,7 +1,9 @@
 /vendor
+/vendor-bin
 /site
 /assets
 .idea
 .vscode
 litedocs.phar
 composer.lock
+/bin/litedocs.phar

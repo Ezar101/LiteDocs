@@ -1,0 +1,49 @@
+name: Build LiteDocs PHAR
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build:
+    name: Build PHAR
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. We retrieve the code
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2. We install PHP 8.4
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4'
+        extensions: mbstring, intl, xml
+        # We disable coverage to go faster
+        coverage: none
+        tools: composer:v2
+
+    # 3. We install the dependencies (including Box, which is in development)
+    - name: Install Dependencies
+      run: composer install --prefer-dist --no-progress
+
+    # 4. We launch the compilation via Box
+    # We make sure that box.json is read correctly
+    - name: Compile PHAR
+      run: vendor/bin/box compile
+
+    # 5. We check that the file works (Smoke Test)
+    - name: Test PHAR version
+      run: |
+        php litedocs.phar --version
+
+    # 6. We save the generated file so you can download it.
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: litedocs-phar
+        path: litedocs.phar
+        retention-days: 5
