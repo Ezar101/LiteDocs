@@ -28,12 +28,21 @@ jobs:
 
     # 3. We install the dependencies (including Box, which is in development)
     - name: Install Dependencies
-      run: composer install --prefer-dist --no-progress
+      run: composer install --prefer-dist --no-progress --no-dev
 
     # 4. We launch the compilation via Box
     # We make sure that box.json is read correctly
+    # - name: Compile PHAR
+    #   run: vendor/bin/box compile
+    # 4-1. We download Box directly (It's more reliable than via vendor/bin)
+    - name: Download Box
+      run: |
+        wget https://github.com/box-project/box/releases/latest/download/box.phar
+        chmod +x box.phar
+
+    # 4-2. We start the compilation with the downloaded file
     - name: Compile PHAR
-      run: vendor/bin/box compile
+      run: php box.phar compile
 
     # 5. We check that the file works (Smoke Test)
     - name: Test PHAR version
