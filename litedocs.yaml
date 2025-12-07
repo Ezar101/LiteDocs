@@ -6,8 +6,8 @@ docs_dir: 'docs'
 site_dir: 'site'
 
 # Branding Assets (Optional: make sure you have these images or comment the lines)
-# logo: 'assets/logo.png'
-# favicon: 'assets/favicon.ico'
+logo: '.assets/logo.png'
+favicon: '.assets/favicon.ico'
 
 theme:
   name: 'lite'
