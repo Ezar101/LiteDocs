@@ -177,7 +177,7 @@ class Kernel
         $finder->files()->in($sourceDir)->name('*.md')->sortByName();
 
         $navBuilder = new NavigationBuilder();
-        $navigation = $navBuilder->build($this->config,clone $finder, $currentLang);
+        $navigation = $navBuilder->build($this->config, clone $finder, $currentLang);
 
         $flatNavigation = $navBuilder->getFlatList($navigation);
         $flatUrls = array_column($flatNavigation, 'url');
@@ -215,7 +215,7 @@ class Kernel
             if (!$pageInfo) {
                 if (preg_match('/<h1[^>]*>(.*?)<\/h1>/si', $htmlContent, $matches)) {
                     $finalTitle = strip_tags($matches[1]);
-                    $breadcrumbs[count($breadcrumbs)-1]['title'] = $finalTitle;
+                    $breadcrumbs[count($breadcrumbs) - 1]['title'] = $finalTitle;
                 }
             }
 
@@ -282,7 +282,7 @@ class Kernel
                 'extra_js'       => $processedJs,
                 'current_lang'   => $currentLang,
                 'languages'      => $this->config['languages'],
-                'trans'          => $translations ?? [],
+                'trans'          => $translations,
                 'search_enabled' => $isSearchEnabled,
                 'breadcrumbs'    => $breadcrumbs,
                 'logo_url'       => $logoUrl,
@@ -350,9 +350,10 @@ class Kernel
                 $newParents = array_merge($parents, [['title' => $item['title'], 'url' => null]]);
                 $result = $this->findPageInfoInNav($item['children'], $currentUrl, $newParents);
 
-                if ($result) return $result;
-            }
-            elseif (isset($item['url']) && $item['url'] === $currentUrl) {
+                if ($result) {
+                    return $result;
+                }
+            } elseif (isset($item['url']) && $item['url'] === $currentUrl) {
                 return [
                     'title' => $item['title'],
                     'breadcrumbs' => array_merge($parents, [['title' => $item['title'], 'url' => $item['url']]]),

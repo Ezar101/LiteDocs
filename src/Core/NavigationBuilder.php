@@ -57,8 +57,7 @@ class NavigationBuilder
                         'url'   => null,
                         'children' => $this->buildFromConfig($value),
                     ];
-                }
-                else {
+                } else {
                     $cleanPath = str_replace('\\', '/', $value);
                     $url = str_replace('.md', '.html', $cleanPath);
 

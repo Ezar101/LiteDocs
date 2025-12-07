@@ -9,12 +9,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use LiteDocs\Event\GenericEvent;
 use LiteDocs\Event\PageEvent;
 
-/**
- * @method void onStartup(GenericEvent $event)
- * @method void onBeforeParse(PageEvent $event)
- * @method void onAfterParse(PageEvent $event)
- * @method void onShutdown(GenericEvent $event)
- */
 abstract class AbstractPlugin implements EventSubscriberInterface
 {
     protected array $configuration = [];
@@ -26,24 +20,27 @@ abstract class AbstractPlugin implements EventSubscriberInterface
 
     public static function getSubscribedEvents(): array
     {
-        $listeners = [];
+        return [
+            BuildEvents::ON_STARTUP   => 'onStartup',
+            BuildEvents::BEFORE_PARSE => 'onBeforeParse',
+            BuildEvents::AFTER_PARSE  => 'onAfterParse',
+            BuildEvents::ON_SHUTDOWN  => 'onShutdown',
+        ];
+    }
 
-        if (method_exists(static::class, 'onStartup')) {
-            $listeners[BuildEvents::ON_STARTUP] = 'onStartup';
-        }
+    public function onStartup(GenericEvent $event): void
+    {
+    }
 
-        if (method_exists(static::class, 'onBeforeParse')) {
-            $listeners[BuildEvents::BEFORE_PARSE] = 'onBeforeParse';
-        }
+    public function onBeforeParse(PageEvent $event): void
+    {
+    }
 
-        if (method_exists(static::class, 'onAfterParse')) {
-            $listeners[BuildEvents::AFTER_PARSE] = 'onAfterParse';
-        }
+    public function onAfterParse(PageEvent $event): void
+    {
+    }
 
-        if (method_exists(static::class, 'onShutdown')) {
-            $listeners[BuildEvents::ON_SHUTDOWN] = 'onShutdown';
-        }
-
-        return $listeners;
+    public function onShutdown(GenericEvent $event): void
+    {
     }
 }

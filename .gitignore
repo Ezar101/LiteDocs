@@ -2,8 +2,10 @@
 /vendor-bin
 /site
 /assets
+/var
 .idea
 .vscode
 litedocs.phar
 composer.lock
 /bin/litedocs.phar
+.php-cs-fixer.cache

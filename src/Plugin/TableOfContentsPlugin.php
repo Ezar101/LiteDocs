@@ -12,15 +12,18 @@ class TableOfContentsPlugin extends AbstractPlugin
     {
         $html = $event->content;
         $toc = [];
+        $usedSlugs = [];
 
         if (preg_match_all('/<h2>(.*?)<\/h2>/s', $html, $matches)) {
-            foreach ($matches[1] as $index => $title) {
-                $title = strip_tags($title);
+            foreach ($matches[1] as $index => $titleRaw) {
+                $title = strip_tags($titleRaw);
                 $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
 
-                if (empty($slug) || isset($toc[$slug])) {
+                if (empty($slug) || isset($usedSlugs[$slug])) {
                     $slug .= '-' . $index;
                 }
+
+                $usedSlugs[$slug] = true;
 
                 $pattern = '/<h2>' . preg_quote($matches[1][$index], '/') . '<\/h2>/';
                 $replacement = '<h2 id="' . $slug . '">' . $matches[1][$index] . '</h2>';
