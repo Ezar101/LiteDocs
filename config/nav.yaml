@@ -1,2 +1,17 @@
 en:
-  - Home: index.md
+  - Introduction: index.md
+  - Getting Started:
+    - Installation: guide/installation.md
+    - Configuration: guide/configuration.md
+    - Plugins: guide/plugins.md
+  - Advanced:
+    - Custom Theme: advanced/theming.md
+
+fr:
+  - Introduction: index.md
+  - Commencer:
+    - Installation: guide/installation.md
+    - Configuration: guide/configuration.md
+    - Plugins: guide/plugins.md
+  - Avancé:
+    - Thèmes: advanced/theming.md

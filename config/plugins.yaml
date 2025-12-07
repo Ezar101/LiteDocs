@@ -1,7 +1,11 @@
+# Displays reading time
 LiteDocs\Plugin\ReadingTimePlugin: ~
 
+# Automatic Table of Contents
 LiteDocs\Plugin\TableOfContentsPlugin: ~
 
+# Syntax highlighting
 LiteDocs\Plugin\SyntaxHighlightPlugin: ~
 
+# JS Search Engine
 LiteDocs\Plugin\SearchPlugin: ~

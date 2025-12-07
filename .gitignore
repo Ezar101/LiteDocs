@@ -1,5 +1,6 @@
 /vendor
 /site
+/assets
 .idea
 .vscode
 litedocs.phar
