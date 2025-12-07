@@ -1,0 +1,6 @@
+/vendor
+/site
+.idea
+.vscode
+litedocs.phar
+composer.lock

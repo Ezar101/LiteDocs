@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang|default('fr') }}" data-root-path="{{ root_path }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }} - {{ config.site_name }}</title>
+
+    {% if favicon_url %}
+        <link rel="icon" href="{{ favicon_url }}">
+    {% endif %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ root_path }}assets/css/style.css">
+
+    {% if extra_css is defined %}
+        {% for css in extra_css %}<link rel="stylesheet" href="{{ css }}">{% endfor %}
+    {% endif %}
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="{{ nav_path }}index.html" class="logo">
+                {% if logo_url %}
+                    <img src="{{ logo_url }}" alt="{{ config.site_name }}" style="max-height: 40px; vertical-align: middle;">
+                    <span style="vertical-align: middle; margin-left: 5px;">{{ config.site_name }}</span>
+                {% else %}
+                    {{ config.site_name }}
+                {% endif %}
+            </a>
+
+            {% if search_enabled %}
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="{{ trans.core.ui.search_placeholder|default('Search...') }}" autocomplete="off">
+                    <div id="search-results"></div>
+                </div>
+            {% endif %}
+        </div>
+
+        <nav class="sidebar-nav">
+            {# MACRO RECURSIVE DE NAVIGATION #}
+            {% macro render_menu(items, path_prefix, curr_page) %}
+                <ul>
+                    {% for item in items %}
+                        <li>
+                            {% if item.children is defined %}
+                                <div class="nav-group-title">{{ item.title }}</div>
+                                {{ _self.render_menu(item.children, path_prefix, curr_page) }}
+                            {% else %}
+                                {% set is_active = (item.url == curr_page) %}
+                                <a href="{{ path_prefix }}{{ item.url }}" class="{{ is_active ? 'active' : '' }}">
+                                    {{ item.title }}
+                                </a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endmacro %}
+
+            {{ _self.render_menu(nav, nav_path, current_page) }}
+        </nav>
+
+        {% if languages is not empty %}
+            <div class="lang-switcher-sidebar">
+                <select class="lang-select">
+                    {% for code, label in languages %}
+                        <option value="{{ root_path }}{{ code }}/index.html" {{ current_lang == code ? 'selected' : '' }}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        {% endif %}
+    </aside>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="mobile-toggle">☰</div>
+            <div class="breadcrumbs">
+                <span style="opacity: 0.5;">Docs</span>
+                <span class="separator">/</span>
+
+                {% for item in breadcrumbs %}
+                    {% if not loop.first %}
+                        <span class="separator">/</span>
+                    {% endif %}
+
+                    {% if item.url and not loop.last %}
+                        <a href="{{ nav_path }}{{ item.url }}">{{ item.title }}</a>
+                    {% else %}
+                        <span class="current">{{ item.title }}</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </header>
+
+        <div class="content-wrapper">
+            <main class="markdown-body">
+                {{ content|raw }}
+
+                {% if pagination.prev or pagination.next %}
+                    <div class="pagination-nav">
+                        {% if pagination.prev %}
+                            <a href="{{ nav_path }}{{ pagination.prev.url }}" class="pagination-link prev">
+                                <span class="label">← {{ trans.core.ui.previous }}</span>
+                                <span class="title">{{ pagination.prev.title }}</span>
+                            </a>
+                        {% else %}<span></span>{% endif %}
+
+                        {% if pagination.next %}
+                            <a href="{{ nav_path }}{{ pagination.next.url }}" class="pagination-link next" style="text-align: right;">
+                                <span class="label">{{ trans.core.ui.next }} →</span>
+                                <span class="title">{{ pagination.next.title }}</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <footer style="margin-top: 50px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
+                     {{ trans.core.ui.generated_with }} <strong>LiteDocs</strong>
+                </footer>
+            </main>
+
+            {% if toc is defined and toc is not empty %}
+                <aside class="toc-sidebar">
+                    <div class="toc-title">{{ trans.core.ui.on_this_page }}</div>
+                    <ul>
+                        {% for item in toc %}
+                            <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="https://github.com/Ezar101" target="_blank" class="powered-by-badge" title="{{ trans.core.ui.generated_with }} LiteDocs">
+        <div class="powered-by-content">
+            <span class="powered-by-text">{{ trans.core.ui.generated_with }}</span>
+            <span class="powered-by-brand">LiteDocs</span>
+        </div>
+        <div class="powered-by-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke="#3f51b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </a>
+
+    <script src="{{ root_path }}assets/js/theme.js"></script>
+
+    {% if extra_js is defined %}
+        {% for js in extra_js %}<script src="{{ js }}"></script>{% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+use LiteDocs\Command\BuildCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('LiteDocs', '1.0.0');
+
+$application->addCommand(new BuildCommand());
+
+$application->run();

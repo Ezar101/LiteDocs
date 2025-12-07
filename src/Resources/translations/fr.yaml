@@ -1,0 +1,7 @@
+ui:
+  navigation: 'Navigation'
+  on_this_page: 'Sur cette page'
+  previous: 'Précédent'
+  next: 'Suivant'
+  generated_with: 'Documentation générée par'
+  search_placeholder: 'Rechercher...'

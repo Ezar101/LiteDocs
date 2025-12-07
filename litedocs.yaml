@@ -1,0 +1,8 @@
+site_name: 'My Docs'
+theme: 'lite'
+
+languages:
+  en: English
+
+nav: 'config/nav.yaml'
+plugins: 'config/plugins.yaml'

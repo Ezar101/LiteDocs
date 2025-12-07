@@ -1,0 +1,35 @@
+{
+    "name": "ezar101/litedocs",
+    "description": "A lightweight static site generator.",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "LiteDocs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ezar Affandi",
+            "email": "salez.ea@gmail.com"
+        }
+    ],
+    "require": {
+       "php": ">=8.4",
+        "symfony/console": "^8.0",
+        "symfony/yaml": "^8.0",
+        "symfony/filesystem": "^8.0",
+        "symfony/event-dispatcher": "^8.0",
+        "symfony/options-resolver": "^8.0",
+        "twig/twig": "^3.22",
+        "league/commonmark": "^2.8",
+        "symfony/finder": "^8.0"
+    },
+    "bin": [
+        "bin/litedocs"
+    ],
+    "config": {
+        "sort-packages": true
+    }
+}
