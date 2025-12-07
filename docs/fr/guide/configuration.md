@@ -8,7 +8,7 @@ Voici un exemple complet de fichier de configuration :
 
 ```yaml
 site_name: "Ma Documentation"
-site_url: "[https://exemple.com](https://exemple.com)"
+site_url: "https://exemple.com"
 
 # Dossiers
 docs_dir: "docs"

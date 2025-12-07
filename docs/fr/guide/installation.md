@@ -14,7 +14,7 @@ Vous pouvez télécharger l'exécutable autonome directement. C'est la méthode 
 
 ```bash
 # Télécharger la dernière version
-wget [https://github.com/ezar101/litedocs/releases/latest/download/litedocs.phar](https://github.com/ezar101/litedocs/releases/latest/download/litedocs.phar)
+wget https://github.com/ezar101/litedocs/releases/latest/download/litedocs.phar
 
 # Rendre exécutable
 chmod +x litedocs.phar

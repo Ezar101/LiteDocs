@@ -14,7 +14,7 @@ You can download the standalone executable directly. This is the easiest way to 
 
 ```bash
 # Download the latest release
-wget [https://github.com/ezar101/litedocs/releases/latest/download/litedocs.phar](https://github.com/ezar101/litedocs/releases/latest/download/litedocs.phar)
+wget https://github.com/ezar101/litedocs/releases/latest/download/litedocs.phar
 
 # Make it executable
 chmod +x litedocs.phar
