@@ -1,8 +1,8 @@
 {
     "main": "bin/litedocs",
     "output": "litedocs.phar",
-    "directories": ["src", "themes", "config"],
-    "files": ["composer.json"],
+    "directories": ["src", "themes", "config", "vendor"],
+    "files": ["composer.json", "composer.lock"],
     "compression": "GZ",
     "chmod": "0755"
 }
