@@ -19,6 +19,8 @@ use Twig\Loader\FilesystemLoader;
 
 class Kernel
 {
+    public const string VERSION = '1.0.2';
+
     private array $config;
 
     private Filesystem $filesystem;
@@ -285,6 +287,7 @@ class Kernel
                 'breadcrumbs'    => $breadcrumbs,
                 'logo_url'       => $logoUrl,
                 'favicon_url'    => $faviconUrl,
+                'app_version'    => self::VERSION,
             ], $pageEvent->getContext());
 
             $pageHtml = $twig->render($themeName . '/base.html.twig', $twigVariables);
