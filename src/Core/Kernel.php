@@ -77,7 +77,15 @@ class Kernel
             $this->createRedirectPage($globalSiteDir . '/index.html', "./$defaultLang/index.html");
         }
 
-        $loader = new FilesystemLoader($this->projectDir . '/themes');
+        $templatePaths = [];
+
+        if (is_dir($this->projectDir . '/themes')) {
+            $templatePaths[] = $this->projectDir . '/themes';
+        }
+
+        $templatePaths[] = dirname(__DIR__) . '/Resources/themes';
+
+        $loader = new FilesystemLoader($templatePaths);
         $twig = new Environment($loader, [
             'autoescape' => false,
         ]);
@@ -91,7 +99,9 @@ class Kernel
             $this->buildVersion($version, $globalSiteDir, $twig, $converter);
         }
 
-        $themeAssetsDir = $this->projectDir . '/themes/' . $this->config['theme']['name'] . '/assets';
+        $themeName = $this->config['theme']['name'];
+        $themeDir = $this->resolveThemeDirectory($themeName);
+        $themeAssetsDir = $themeDir . '/assets';
 
         if ($this->filesystem->exists($themeAssetsDir)) {
             $this->filesystem->mirror($themeAssetsDir, $globalSiteDir . '/assets');
@@ -148,7 +158,7 @@ class Kernel
         $destDir = $version['dest'];
         $currentLang = $version['lang'];
         $themeName = $this->config['theme']['name'];
-        $themeDir = $this->projectDir . '/themes/' . $themeName;
+        $themeDir = $this->resolveThemeDirectory($themeName);
 
         if (!is_dir($sourceDir)) {
             echo "Warning: Source folder '$sourceDir' not found. Skipping.\n";
@@ -348,5 +358,22 @@ class Kernel
         }
 
         return null;
+    }
+
+    private function resolveThemeDirectory(string $themeName): string
+    {
+        $userThemeDir = $this->projectDir . '/themes/' . $themeName;
+
+        if (is_dir($userThemeDir)) {
+            return $userThemeDir;
+        }
+
+        $internalThemeDir = dirname(__DIR__) . '/Resources/themes/' . $themeName;
+
+        if (is_dir($internalThemeDir)) {
+            return $internalThemeDir;
+        }
+
+        throw new \RuntimeException(sprintf('Theme "%s" not found.', $themeName));
     }
 }
