@@ -12,6 +12,7 @@ Nous incluons plusieurs plugins puissants par défaut :
 | **ReadingTimePlugin** | Affiche le temps de lecture estimé. |
 | **TableOfContentsPlugin** | Génère une table des matières sur le côté droit. |
 | **SyntaxHighlightPlugin** | Ajoute des couleurs à vos blocs de code via Highlight.js. |
+| **SitemapPlugin** | Ajoute sitemap.xml pour le SEO. |
 
 ## Activation
 

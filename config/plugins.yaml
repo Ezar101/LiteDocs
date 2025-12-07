@@ -9,3 +9,5 @@ LiteDocs\Plugin\SyntaxHighlightPlugin: ~
 
 # JS Search Engine
 LiteDocs\Plugin\SearchPlugin: ~
+
+LiteDocs\Plugin\SitemapPlugin: ~

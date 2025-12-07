@@ -12,6 +12,7 @@ We include several powerful plugins out of the box:
 | **ReadingTimePlugin** | Displays estimated reading time. |
 | **TableOfContentsPlugin** | Generates a table of contents on the right side. |
 | **SyntaxHighlightPlugin** | Adds colors to your code blocks using Highlight.js. |
+| **SitemapPlugin** | Add sitemap.xml for the SEO. |
 
 ## Activation
 
