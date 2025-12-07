@@ -3,6 +3,7 @@ parameters:
     paths:
         - src
         - bin
+        - tests
     excludePaths:
         - vendor
     tmpDir: var/cache/phpstan
