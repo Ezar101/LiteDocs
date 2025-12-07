@@ -8,7 +8,7 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 use LiteDocs\Command\BuildCommand;
 use Symfony\Component\Console\Application;
 
-$application = new Application('LiteDocs', '1.0.0');
+$application = new Application('LiteDocs', '1.0.1');
 
 $application->addCommand(new BuildCommand());
 
