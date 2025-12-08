@@ -29,3 +29,25 @@ You can also install it as a global dependency:
 ```bash
 composer global require ezar101/litedocs
 ```
+
+## Development Workflow
+
+When writing documentation, you don't want to run the build command manually every time.
+
+Use the **watch** command to watch for file changes in your `docs` and `themes` directories:
+
+```bash
+litedocs watch
+```
+
+## Live Preview
+
+Since LiteDocs is a static site generator, it doesn't include a web server. To preview your site locally:
+
+1. Open a terminal and run the watcher: `litedocs watch`
+2. Open a second terminal and run PHP's built-in server:
+
+    ```bash
+    php -S localhost:8000 -t site
+    ```
+3. Go to `http://localhost:8000` in your browser.
