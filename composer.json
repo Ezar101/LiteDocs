@@ -2,7 +2,7 @@
     "name": "ezar101/litedocs",
     "description": "A lightweight static site generator.",
     "license": "MIT",
-    "type": "project",
+    "type": "library",
     "authors": [
         {
             "name": "Ezar Affandi",
