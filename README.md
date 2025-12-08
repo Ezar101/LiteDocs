@@ -50,10 +50,19 @@ composer global require Ezar101/litedocs
 1. **Initialize a new project** Create a litedocs.yml file and a docs/ folder with some markdown files.
 2. **Build the site** Run the build command in your project directory:
 
-```bash
-litedocs build
-```
-3. Enjoy Your static site is generated in the site/ directory, ready to be deployed to GitHub Pages, Vercel, or Netlify.
+    ```bash
+    litedocs build
+    ```
+3.  **Development Mode (Optional)**
+    To automatically rebuild the site whenever you change a file:
+
+    ```bash
+    litedocs watch
+    ```
+
+    *Tip: Open a second terminal and run `php -S localhost:8000 -t site` to view your changes live.*
+
+4. Enjoy Your static site is generated in the site/ directory, ready to be deployed to GitHub Pages, Vercel, or Netlify.
 
 ## ⚙️ Configuration
 
@@ -92,25 +101,25 @@ Contributions are welcome! We enforce high code quality standards to keep the pr
 1. **Fork** the repository and create a new branch.
 2. Install dependencies:
 
-```bash
-composer install
-```
+    ```bash
+    composer install
+    ```
 3. **Write Tests**: We use [Pest PHP](https://pestphp.com/).
 
-```bash
-composer test
-```
+    ```bash
+    composer test
+    ```
 4. **Analyze Code**: Ensure static analysis passes.
 
-```bash
-composer analyse
-```
+    ```bash
+    composer analyse
+    ```
 5. **Fix Style:** Format your code to PSR-12 standards.
 
-```bash
-composer lint  # Check
-composer fix   # Auto-fix
-```
+    ```bash
+    composer lint  # Check
+    composer fix   # Auto-fix
+    ```
 6. Submit a **Pull Request**.
 
 **Note:** Our CI pipeline will automatically block any PR that does not pass tests or static analysis.
