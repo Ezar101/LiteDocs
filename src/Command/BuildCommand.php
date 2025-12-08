@@ -10,7 +10,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 
 #[AsCommand(
     name: 'build',
@@ -23,10 +22,8 @@ class BuildCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $projectDir = getcwd(); // User's current directory
 
-        $dispatcher = new EventDispatcher();
-
         try {
-            $kernel = new Kernel($projectDir, $dispatcher);
+            $kernel = new Kernel($projectDir);
             $kernel->boot();
 
             $io->title('LiteDocs Builder');

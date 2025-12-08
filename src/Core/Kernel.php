@@ -10,6 +10,7 @@ use LiteDocs\Event\BuildEvents;
 use LiteDocs\Event\GenericEvent;
 use LiteDocs\Event\PageEvent;
 use LiteDocs\Plugin\AbstractPlugin;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
@@ -25,9 +26,10 @@ class Kernel
 
     private Filesystem $filesystem;
 
+    private EventDispatcherInterface $dispatcher;
+
     public function __construct(
         private string $projectDir,
-        private EventDispatcherInterface $dispatcher,
     ) {
         $this->filesystem = new Filesystem();
     }
@@ -41,6 +43,8 @@ class Kernel
 
         $configuration = new Configuration();
         $this->config = $configuration->resolve($rawConfig);
+
+        $this->dispatcher = new EventDispatcher();
 
         $this->loadPlugins();
     }

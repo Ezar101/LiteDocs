@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use LiteDocs\Core\Kernel;
-use Symfony\Component\EventDispatcher\EventDispatcher;
 
 test('application has a version', function () {
     expect(Kernel::VERSION)->toBeString();
@@ -11,7 +10,7 @@ test('application has a version', function () {
 });
 
 test('kernel can verify theme directory', function () {
-    $kernel = new Kernel(__DIR__, new EventDispatcher());
+    $kernel = new Kernel(__DIR__);
 
     $reflection = new ReflectionClass($kernel);
     $method = $reflection->getMethod('resolveThemeDirectory');
