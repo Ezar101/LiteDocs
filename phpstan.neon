@@ -7,3 +7,10 @@ parameters:
     excludePaths:
         - vendor
     tmpDir: var/cache/phpstan
+    ignoreErrors:
+        -
+            message: '#While loop condition is always true.#'
+            path: src/Command/WatchCommand.php
+        -
+            message: '#Unreachable statement - code above always terminates.#'
+            path: src/Command/WatchCommand.php

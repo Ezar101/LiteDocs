@@ -6,11 +6,13 @@ declare(strict_types=1);
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 use LiteDocs\Command\BuildCommand;
+use LiteDocs\Command\WatchCommand;
 use LiteDocs\Core\Kernel;
 use Symfony\Component\Console\Application;
 
 $application = new Application('LiteDocs', Kernel::VERSION);
 
 $application->addCommand(new BuildCommand());
+$application->addCommand(new WatchCommand());
 
 $application->run();
