@@ -20,7 +20,7 @@ use Twig\Loader\FilesystemLoader;
 
 class Kernel
 {
-    public const string VERSION = '1.0.3';
+    public const string VERSION = '1.0.4';
 
     private array $config;
 
@@ -321,13 +321,17 @@ class Kernel
 
     private function processAsset(string $assetPath, string $siteDir, string $rootPath): string
     {
-        if (filter_var($assetPath, FILTER_VALIDATE_URL)) {
+        // if (filter_var($assetPath, FILTER_VALIDATE_URL)) {
+        //     return $assetPath;
+        // }
+
+        if (str_starts_with($assetPath, 'http://') || str_starts_with($assetPath, 'https://') || str_starts_with($assetPath, '//')) {
             return $assetPath;
         }
 
         if (!file_exists($assetPath)) {
-            trigger_error("Asset not found: $assetPath", E_USER_WARNING);
-            return $assetPath;
+            trigger_error("Asset not found (excluded from build?): $assetPath", E_USER_WARNING);
+            return '';
         }
 
         $extension = pathinfo($assetPath, PATHINFO_EXTENSION);
