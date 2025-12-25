@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr" data-root-path="../../">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration - My LiteDocs</title>
+
+            <link rel="icon" href="../../assets/plugins/6a85d163ea95a50bc37126ccdfd7a4d4.ico">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">    </head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                                    <img src="../../assets/plugins/3ef5f8ac646ca1db940f1f6722fa6bda.png" alt="My LiteDocs" style="max-height: 40px; vertical-align: middle;">
+                    <span style="vertical-align: middle; margin-left: 5px;">My LiteDocs</span>
+                            </a>
+
+                            <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+                    <div id="search-results"></div>
+                </div>
+                    </div>
+
+        <nav class="sidebar-nav">
+                        
+                            <ul>
+                                            <li>
+                                                                                            <a href="../index.html" class="">
+                                    Introduction
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Commencer</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="../guide/installation.html" class="">
+                                    Installation
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="../guide/configuration.html" class="active">
+                                    Configuration
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="../guide/plugins.html" class="">
+                                    Plugins
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Avancé</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="../advanced/theming.html" class="">
+                                    Thèmes
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                    </ul>
+            
+        </nav>
+
+                    <div class="lang-switcher-sidebar">
+                <select class="lang-select">
+                                            <option value="../../en/index.html" >
+                            English
+                        </option>
+                                            <option value="../../fr/index.html" selected>
+                            Français
+                        </option>
+                                    </select>
+            </div>
+            </aside>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="mobile-toggle">☰</div>
+            <div class="breadcrumbs">
+                <span style="opacity: 0.5;">Docs</span>
+                <span class="separator">/</span>
+
+                                    
+                                            <span class="current">Commencer</span>
+                                                                                <span class="separator">/</span>
+                    
+                                            <span class="current">Configuration</span>
+                                                </div>
+        </header>
+
+        <div class="content-wrapper">
+            <main class="markdown-body">
+                <div data-search-ignore style="background: #e0f7fa; color: #006064; padding: 10px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9em;">⏱️ Temps de lecture estimé : <strong>1 min</strong></div>
+<h1>Configuration</h1>
+<p>LiteDocs utilise un seul fichier YAML nommé <code>litedocs.yml</code> à la racine de votre projet.</p>
+<h2 id="structure-de-base">Structure de Base</h2>
+<p>Voici un exemple complet de fichier de configuration :</p>
+<pre><code class="language-yaml">site_name: &quot;Ma Documentation&quot;
+site_url: &quot;https://exemple.com&quot;
+
+# Dossiers
+docs_dir: &quot;docs&quot;
+site_dir: &quot;site&quot;
+
+# Branding
+logo: &quot;assets/logo.png&quot;
+favicon: &quot;assets/favicon.ico&quot;
+
+# Thème
+theme:
+    name: lite
+
+# Imports (Recommandé pour les gros projets)
+nav: &quot;config/nav.yml&quot;
+plugins: &quot;config/plugins.yml&quot;
+</code></pre>
+<h2 id="configuration-de-la-navigation">Configuration de la Navigation</h2>
+<p>Vous pouvez séparer votre logique de navigation dans <code>config/nav.yml</code>:</p>
+<pre><code class="language-yaml">fr:
+    - Accueil: index.md
+    - Guide:
+        - Installation: guide/installation.md
+</code></pre>
+
+<script src="../../search_index.js"></script>
+
+                                    <div class="pagination-nav">
+                                                    <a href="../guide/installation.html" class="pagination-link prev">
+                                <span class="label">← Précédent</span>
+                                <span class="title">Installation</span>
+                            </a>
+                        
+                                                    <a href="../guide/plugins.html" class="pagination-link next" style="text-align: right;">
+                                <span class="label">Suivant →</span>
+                                <span class="title">Plugins</span>
+                            </a>
+                                            </div>
+                
+                <footer style="margin-top: 50px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
+                     Documentation générée par <strong>LiteDocs</strong>
+                </footer>
+            </main>
+
+                            <aside class="toc-sidebar">
+                    <div class="toc-title">Sur cette page</div>
+                    <ul>
+                                                    <li><a href="#structure-de-base">Structure de Base</a></li>
+                                                    <li><a href="#configuration-de-la-navigation">Configuration de la Navigation</a></li>
+                                            </ul>
+                </aside>
+                    </div>
+    </div>
+
+    <a href="https://github.com/Ezar101/LiteDocs" target="_blank" class="powered-by-badge" title="Documentation générée par LiteDocs v1.0.4">
+        <div class="powered-by-content">
+            <span class="powered-by-text">Documentation générée par</span>
+            <span class="powered-by-brand">LiteDocs <small style="font-weight: normal; opacity: 0.7;">v1.0.4</small></span>
+        </div>
+        <div class="powered-by-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke="#3f51b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </a>
+
+    <script src="../../assets/js/theme.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="../../assets/plugins/0ccd45089fa87b92a357bbd4ff17a52c.js"></script><script src="../../assets/plugins/ac685acb8f7644a29bb70aa9804068bd.js"></script>    </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr" data-root-path="../../">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thèmes - My LiteDocs</title>
+
+            <link rel="icon" href="../../assets/plugins/6a85d163ea95a50bc37126ccdfd7a4d4.ico">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">    </head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                                    <img src="../../assets/plugins/3ef5f8ac646ca1db940f1f6722fa6bda.png" alt="My LiteDocs" style="max-height: 40px; vertical-align: middle;">
+                    <span style="vertical-align: middle; margin-left: 5px;">My LiteDocs</span>
+                            </a>
+
+                            <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+                    <div id="search-results"></div>
+                </div>
+                    </div>
+
+        <nav class="sidebar-nav">
+                        
+                            <ul>
+                                            <li>
+                                                                                            <a href="../index.html" class="">
+                                    Introduction
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Commencer</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="../guide/installation.html" class="">
+                                    Installation
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="../guide/configuration.html" class="">
+                                    Configuration
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="../guide/plugins.html" class="">
+                                    Plugins
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Avancé</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="../advanced/theming.html" class="active">
+                                    Thèmes
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                    </ul>
+            
+        </nav>
+
+                    <div class="lang-switcher-sidebar">
+                <select class="lang-select">
+                                            <option value="../../en/index.html" >
+                            English
+                        </option>
+                                            <option value="../../fr/index.html" selected>
+                            Français
+                        </option>
+                                    </select>
+            </div>
+            </aside>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="mobile-toggle">☰</div>
+            <div class="breadcrumbs">
+                <span style="opacity: 0.5;">Docs</span>
+                <span class="separator">/</span>
+
+                                    
+                                            <span class="current">Avancé</span>
+                                                                                <span class="separator">/</span>
+                    
+                                            <span class="current">Thèmes</span>
+                                                </div>
+        </header>
+
+        <div class="content-wrapper">
+            <main class="markdown-body">
+                <div data-search-ignore style="background: #e0f7fa; color: #006064; padding: 10px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9em;">⏱️ Temps de lecture estimé : <strong>1 min</strong></div>
+<h1>Thèmes</h1>
+<p>LiteDocs utilise <strong>Twig</strong> comme moteur de template. Vous pouvez facilement personnaliser l'apparence.</p>
+<h2 id="cr-er-un-th-me">Créer un Thème</h2>
+<ol>
+<li>Créez un dossier dans <code>themes/</code> (ex: <code>themes/mon-theme</code>).</li>
+<li>Créez un fichier <code>base.html.twig</code> à l'intérieur.</li>
+<li>Créez un dossier <code>assets/</code> pour vos CSS et JS.</li>
+</ol>
+<h2 id="variables-disponibles">Variables Disponibles</h2>
+<p>Dans vos templates Twig, vous avez accès à :</p>
+<ul>
+<li><code>content</code> : Le contenu HTML de la page.</li>
+<li><code>nav</code> : L'arbre de navigation.</li>
+<li><code>page_title</code> : Le titre de la page courante.</li>
+<li><code>config</code> : Le tableau complet de configuration.</li>
+<li><code>trans</code> : Les traductions (basées sur la langue actuelle).</li>
+</ul>
+<h2 id="surcharger-les-traductions">Surcharger les Traductions</h2>
+<p>Vous pouvez surcharger n'importe quel texte en créant un fichier <code>translations/fr.yaml</code> à la racine de votre projet :</p>
+<pre><code class="language-yaml">core:
+    ui:
+        navigation: &quot;Menu Principal&quot;
+</code></pre>
+
+<script src="../../search_index.js"></script>
+
+                                    <div class="pagination-nav">
+                                                    <a href="../guide/plugins.html" class="pagination-link prev">
+                                <span class="label">← Précédent</span>
+                                <span class="title">Plugins</span>
+                            </a>
+                        
+                                            </div>
+                
+                <footer style="margin-top: 50px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
+                     Documentation générée par <strong>LiteDocs</strong>
+                </footer>
+            </main>
+
+                            <aside class="toc-sidebar">
+                    <div class="toc-title">Sur cette page</div>
+                    <ul>
+                                                    <li><a href="#cr-er-un-th-me">Créer un Thème</a></li>
+                                                    <li><a href="#variables-disponibles">Variables Disponibles</a></li>
+                                                    <li><a href="#surcharger-les-traductions">Surcharger les Traductions</a></li>
+                                            </ul>
+                </aside>
+                    </div>
+    </div>
+
+    <a href="https://github.com/Ezar101/LiteDocs" target="_blank" class="powered-by-badge" title="Documentation générée par LiteDocs v1.0.4">
+        <div class="powered-by-content">
+            <span class="powered-by-text">Documentation générée par</span>
+            <span class="powered-by-brand">LiteDocs <small style="font-weight: normal; opacity: 0.7;">v1.0.4</small></span>
+        </div>
+        <div class="powered-by-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke="#3f51b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </a>
+
+    <script src="../../assets/js/theme.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="../../assets/plugins/0ccd45089fa87b92a357bbd4ff17a52c.js"></script><script src="../../assets/plugins/ac685acb8f7644a29bb70aa9804068bd.js"></script>    </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-root-path="../">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - My LiteDocs</title>
+
+            <link rel="icon" href="../assets/plugins/6a85d163ea95a50bc37126ccdfd7a4d4.ico">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">    </head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="./index.html" class="logo">
+                                    <img src="../assets/plugins/3ef5f8ac646ca1db940f1f6722fa6bda.png" alt="My LiteDocs" style="max-height: 40px; vertical-align: middle;">
+                    <span style="vertical-align: middle; margin-left: 5px;">My LiteDocs</span>
+                            </a>
+
+                            <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+                    <div id="search-results"></div>
+                </div>
+                    </div>
+
+        <nav class="sidebar-nav">
+                        
+                            <ul>
+                                            <li>
+                                                                                            <a href="./index.html" class="active">
+                                    Introduction
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Getting Started</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="./guide/installation.html" class="">
+                                    Installation
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="./guide/configuration.html" class="">
+                                    Configuration
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="./guide/plugins.html" class="">
+                                    Plugins
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Advanced</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="./advanced/theming.html" class="">
+                                    Custom Theme
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                    </ul>
+            
+        </nav>
+
+                    <div class="lang-switcher-sidebar">
+                <select class="lang-select">
+                                            <option value="../en/index.html" selected>
+                            English
+                        </option>
+                                            <option value="../fr/index.html" >
+                            Français
+                        </option>
+                                    </select>
+            </div>
+            </aside>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="mobile-toggle">☰</div>
+            <div class="breadcrumbs">
+                <span style="opacity: 0.5;">Docs</span>
+                <span class="separator">/</span>
+
+                                    
+                                            <span class="current">Introduction</span>
+                                                </div>
+        </header>
+
+        <div class="content-wrapper">
+            <main class="markdown-body">
+                <div data-search-ignore style="background: #e0f7fa; color: #006064; padding: 10px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9em;">⏱️ Temps de lecture estimé : <strong>1 min</strong></div>
+<h1>Welcome to LiteDocs</h1>
+<p><strong>LiteDocs</strong> is a lightweight, modern static site generator written in PHP. It is designed to be fast, extensible, and easy to use for technical documentation.</p>
+<h2 id="why-litedocs-">Why LiteDocs?</h2>
+<ul>
+<li><strong>⚡ Fast:</strong> Generates static HTML files in seconds.</li>
+<li><strong>🔌 Extensible:</strong> Plugin system to add features easily.</li>
+<li><strong>🎨 Theming:</strong> Modern default theme (Sylius/GitBook style).</li>
+<li><strong>🌍 Multilingual:</strong> Native support for multiple languages.</li>
+<li><strong>🔍 Search:</strong> Built-in client-side search engine.</li>
+</ul>
+<h2 id="quick-start">Quick Start</h2>
+<p>Run the following command to build your documentation:</p>
+<pre><code class="language-bash">php bin/litedocs build
+</code></pre>
+<h2 id="quick-example">Quick Example</h2>
+<p>Here is how you initialize the kernel in PHP:</p>
+<pre><code class="language-php">use LiteDocs\Core\Kernel;
+
+$kernel = new Kernel(__DIR__);
+$kernel-&gt;boot();
+$kernel-&gt;build();
+
+&lt;div data-search-ignore style=&quot;background: #e0f7fa; color: #006064; padding: 15px; border-radius: 4px; margin-top: 20px;&quot;&gt; &lt;strong&gt;Tip:&lt;/strong&gt; This block uses the &lt;code&gt;data-search-ignore&lt;/code&gt; attribute. It will be visible to the user but ignored by the search bar indexer. &lt;/div&gt;
+</code></pre>
+
+<script src="../search_index.js"></script>
+
+                                    <div class="pagination-nav">
+                        <span></span>
+                                                    <a href="./guide/installation.html" class="pagination-link next" style="text-align: right;">
+                                <span class="label">Next →</span>
+                                <span class="title">Installation</span>
+                            </a>
+                                            </div>
+                
+                <footer style="margin-top: 50px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
+                     Documentation built with <strong>LiteDocs</strong>
+                </footer>
+            </main>
+
+                            <aside class="toc-sidebar">
+                    <div class="toc-title">On this page</div>
+                    <ul>
+                                                    <li><a href="#why-litedocs-">Why LiteDocs?</a></li>
+                                                    <li><a href="#quick-start">Quick Start</a></li>
+                                                    <li><a href="#quick-example">Quick Example</a></li>
+                                            </ul>
+                </aside>
+                    </div>
+    </div>
+
+    <a href="https://github.com/Ezar101/LiteDocs" target="_blank" class="powered-by-badge" title="Documentation built with LiteDocs v1.0.4">
+        <div class="powered-by-content">
+            <span class="powered-by-text">Documentation built with</span>
+            <span class="powered-by-brand">LiteDocs <small style="font-weight: normal; opacity: 0.7;">v1.0.4</small></span>
+        </div>
+        <div class="powered-by-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke="#3f51b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </a>
+
+    <script src="../assets/js/theme.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="../assets/plugins/0ccd45089fa87b92a357bbd4ff17a52c.js"></script><script src="../assets/plugins/ac685acb8f7644a29bb70aa9804068bd.js"></script>    </body>
+</html>

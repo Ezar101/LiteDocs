@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-root-path="../../">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation - My LiteDocs</title>
+
+            <link rel="icon" href="../../assets/plugins/6a85d163ea95a50bc37126ccdfd7a4d4.ico">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">    </head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                                    <img src="../../assets/plugins/3ef5f8ac646ca1db940f1f6722fa6bda.png" alt="My LiteDocs" style="max-height: 40px; vertical-align: middle;">
+                    <span style="vertical-align: middle; margin-left: 5px;">My LiteDocs</span>
+                            </a>
+
+                            <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+                    <div id="search-results"></div>
+                </div>
+                    </div>
+
+        <nav class="sidebar-nav">
+                        
+                            <ul>
+                                            <li>
+                                                                                            <a href="../index.html" class="">
+                                    Introduction
+                                </a>
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Getting Started</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="../guide/installation.html" class="active">
+                                    Installation
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="../guide/configuration.html" class="">
+                                    Configuration
+                                </a>
+                                                    </li>
+                                            <li>
+                                                                                            <a href="../guide/plugins.html" class="">
+                                    Plugins
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                            <li>
+                                                            <div class="nav-group-title">Advanced</div>
+                                                <ul>
+                                            <li>
+                                                                                            <a href="../advanced/theming.html" class="">
+                                    Custom Theme
+                                </a>
+                                                    </li>
+                                    </ul>
+            
+                                                    </li>
+                                    </ul>
+            
+        </nav>
+
+                    <div class="lang-switcher-sidebar">
+                <select class="lang-select">
+                                            <option value="../../en/index.html" selected>
+                            English
+                        </option>
+                                            <option value="../../fr/index.html" >
+                            Français
+                        </option>
+                                    </select>
+            </div>
+            </aside>
+
+    <div class="main-content">
+        <header class="top-bar">
+            <div class="mobile-toggle">☰</div>
+            <div class="breadcrumbs">
+                <span style="opacity: 0.5;">Docs</span>
+                <span class="separator">/</span>
+
+                                    
+                                            <span class="current">Getting Started</span>
+                                                                                <span class="separator">/</span>
+                    
+                                            <span class="current">Installation</span>
+                                                </div>
+        </header>
+
+        <div class="content-wrapper">
+            <main class="markdown-body">
+                <div data-search-ignore style="background: #e0f7fa; color: #006064; padding: 10px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9em;">⏱️ Temps de lecture estimé : <strong>1 min</strong></div>
+<h1>Installation</h1>
+<h2 id="requirements">Requirements</h2>
+<p>Before using LiteDocs, ensure your environment meets these requirements:</p>
+<ul>
+<li><strong>PHP:</strong> 8.4 or higher</li>
+<li><strong>Composer:</strong> installed globally (optional if using PHAR)</li>
+<li><strong>Extensions:</strong> <code>php-xml</code>, <code>php-mbstring</code></li>
+</ul>
+<h2 id="option-1-using-the-phar-recommended-">Option 1: Using the PHAR (Recommended)</h2>
+<p>You can download the standalone executable directly. This is the easiest way to get started.</p>
+<pre><code class="language-bash"># Download the latest release
+wget https://github.com/ezar101/litedocs/releases/latest/download/litedocs.phar
+
+# Make it executable
+chmod +x litedocs.phar
+
+# Move to bin (optional)
+sudo mv litedocs.phar /usr/local/bin/litedocs
+</code></pre>
+<h2 id="option-2-using-composer">Option 2: Using Composer</h2>
+<p>You can also install it as a global dependency:</p>
+<pre><code class="language-bash">composer global require ezar101/litedocs
+</code></pre>
+<h2 id="development-workflow">Development Workflow</h2>
+<p>When writing documentation, you don't want to run the build command manually every time.</p>
+<p>Use the <strong>watch</strong> command to watch for file changes in your <code>docs</code> and <code>themes</code> directories:</p>
+<pre><code class="language-bash">litedocs watch
+</code></pre>
+<h2 id="live-preview">Live Preview</h2>
+<p>Since LiteDocs is a static site generator, it doesn't include a web server. To preview your site locally:</p>
+<ol>
+<li>
+<p>Open a terminal and run the watcher: <code>litedocs watch</code></p>
+</li>
+<li>
+<p>Open a second terminal and run PHP's built-in server:</p>
+<pre><code class="language-bash">php -S localhost:8000 -t site
+</code></pre>
+</li>
+<li>
+<p>Go to <code>http://localhost:8000</code> in your browser.</p>
+</li>
+</ol>
+
+<script src="../../search_index.js"></script>
+
+                                    <div class="pagination-nav">
+                                                    <a href="../index.html" class="pagination-link prev">
+                                <span class="label">← Previous</span>
+                                <span class="title">Introduction</span>
+                            </a>
+                        
+                                                    <a href="../guide/configuration.html" class="pagination-link next" style="text-align: right;">
+                                <span class="label">Next →</span>
+                                <span class="title">Configuration</span>
+                            </a>
+                                            </div>
+                
+                <footer style="margin-top: 50px; font-size: 0.8em; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
+                     Documentation built with <strong>LiteDocs</strong>
+                </footer>
+            </main>
+
+                            <aside class="toc-sidebar">
+                    <div class="toc-title">On this page</div>
+                    <ul>
+                                                    <li><a href="#requirements">Requirements</a></li>
+                                                    <li><a href="#option-1-using-the-phar-recommended-">Option 1: Using the PHAR (Recommended)</a></li>
+                                                    <li><a href="#option-2-using-composer">Option 2: Using Composer</a></li>
+                                                    <li><a href="#development-workflow">Development Workflow</a></li>
+                                                    <li><a href="#live-preview">Live Preview</a></li>
+                                            </ul>
+                </aside>
+                    </div>
+    </div>
+
+    <a href="https://github.com/Ezar101/LiteDocs" target="_blank" class="powered-by-badge" title="Documentation built with LiteDocs v1.0.4">
+        <div class="powered-by-content">
+            <span class="powered-by-text">Documentation built with</span>
+            <span class="powered-by-brand">LiteDocs <small style="font-weight: normal; opacity: 0.7;">v1.0.4</small></span>
+        </div>
+        <div class="powered-by-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke="#3f51b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </a>
+
+    <script src="../../assets/js/theme.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="../../assets/plugins/0ccd45089fa87b92a357bbd4ff17a52c.js"></script><script src="../../assets/plugins/ac685acb8f7644a29bb70aa9804068bd.js"></script>    </body>
+</html>
