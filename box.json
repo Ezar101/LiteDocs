@@ -2,7 +2,7 @@
     "main": "bin/litedocs",
     "output": "litedocs.phar",
     "directories": ["src", "config", "vendor"],
-    "files": ["composer.json", "composer.lock"],
+    "files": ["composer.json", "composer.lock", "LICENSE", "README.md"],
     "compression": "GZ",
     "chmod": "0755"
 }
